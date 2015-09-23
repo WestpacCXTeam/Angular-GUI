@@ -1,0 +1,23 @@
+{
+  "name": "gui-directives",
+  "version": "0.0.1",
+  "description": "gui directives",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BastienZag/gui-directives.git"
+  },
+  "author": "Bastien Cabirou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BastienZag/gui-directives/issues"
+  },
+  "homepage": "https://github.com/BastienZag/gui-directives#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.11.2"
+  }
+}

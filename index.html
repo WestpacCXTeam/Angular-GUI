@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+<html class="no-js lt-ie8 lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9 ie8" lang="en">
+<![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js ie9" lang="en">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>GUI Directives page</title>
+
+	<script type="text/javascript">
+	var $html=document.documentElement;if($html.classList)$html.classList.remove("no-js"),$html.classList.add("js");else{var className="no-js";$html.className=$html.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|$)","gi")," "),$html.className+=" js"}
+	</script>
+
+	<link rel="stylesheet" href="GUI-core-blend/assets/css/gui.min.css">
+
+	<link rel="stylesheet" href="gui.demo.css">
+
+	<!-- todo: add grunt icon task -->
+	<link rel="stylesheet" href="GUI-core-blend/assets/css/symbols.data.png.css">
+	<link rel="stylesheet" href="GUI-core-blend/assets/css/symbols.data.svg.css">
+	<link rel="stylesheet" href="GUI-core-blend/assets/css/symbols.fallback.css">
+
+	<!-- We need jquery for the focus -->
+	<script type="text/javascript" src="libs/jquery-1.11.3.min.js"></script>
+
+	<script type="text/javascript" src="libs/jquery.trap.js"></script>
+
+	<script type="text/javascript" src="libs/angular.js"></script>
+
+	<script type="text/javascript" src="GUI-directives/GUI-directives.js"></script>
+
+	<!-- alert-box directive -->
+	<!-- <link rel="stylesheet" href="GUI-directives/alertBox/alertBox-style.css"> -->
+	<script type="text/javascript" src="GUI-directives/alertBox/alertBox-directive.js"></script>
+
+	<!-- <link rel="stylesheet" href="GUI-directives/dropdown/dropdown-style.css"> -->
+	<script type="text/javascript" src="GUI-directives/dropdown/dropdown-directive.js"></script>
+
+	<script type="text/javascript" src="GUI-directives/popover/popover-directive.js"></script>
+
+	<script type="text/javascript" src="app.js"></script>
+
+</head>
+<body ng-app="testGUIDirectives" ng-controller="testController">
+
+	<noscript>
+		<p role="alert">This website needs Javascript to work properly.</p>
+	</noscript>
+
+	<main>
+
+		<section>
+			<h2> Alert-box </h2>
+
+			<gui-alert-box close-button="false" type="danger">
+				I'm a danger alert.
+			</gui-alert-box>
+
+			<gui-alert-box close-button="true" type="success">
+				I'm a success alert and you can close me.
+			</gui-alert-box>
+
+			<gui-alert-box close-button="true" type="warning" is-closed="false">
+				I'm a warning alert and I can be close by default
+			</gui-alert-box>
+		</section>
+
+		<section>
+			<h2> Dropdown </h2>
+
+			<!-- Dropdown -->
+			<div gui-dropdown class="btn-dropdown" aria-haspopup="true">
+				<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Primary with buttons. Hit enter to open dropdown">
+					<span class="btn-dropdown-caret">Primary with buttons</span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1" aria-hidden="true">
+					<li class="dropdown-menu-headline">Headline</li>
+					<li><button ng-click="sayHello()" class="btn btn-link">Action 1</button></li>
+					<li><button ng-click="sayHello()" class="btn btn-link">Another action</button></li>
+					<li class="dropdown-menu-headline dropdown-menu-divider">With a repeat</li>
+					<li ng-repeat="item in mock.array"><button ng-click="sayHello()" class="btn btn-link">{{item}}</button></li>
+				</ul>
+			</div>
+
+			<div gui-dropdown class="btn-dropdown" aria-haspopup="true">
+				<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Hero with buttons. Hit enter to open dropdown">
+					<span class="btn-dropdown-caret">Hero with buttons</span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1" aria-hidden="true">
+					<li class="dropdown-menu-headline">Headline</li>
+					<li><button ng-click="sayHello()" class="btn btn-link">Action 1</button></li>
+					<li><button ng-click="sayHello()" class="btn btn-link">Another action</button></li>
+				</ul>
+			</div>
+
+			<div gui-dropdown class="btn-dropdown" aria-haspopup="true">
+				<button type="button" class="btn btn-neutral js-button-dropdown" aria-label="Neutral with links. Hit enter to open dropdown">
+					<span class="btn-dropdown-caret">Neutral with links</span>
+				</button>
+				<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1" aria-hidden="false">
+					<li class="dropdown-menu-headline">Headline</li>
+					<li><a href="buttons/#url">Action 1</a></li>
+					<li><a href="buttons/#url">Another action</a></li>
+					<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
+					<li><a href="buttons/#url">Action 3</a></li>
+					<li><a href="buttons/#url">Last action</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<section>
+
+			<h2>Popover</h2>
+
+			<div gui-popover class="popover-wrapper">
+				<button class="btn popover js-popover">
+					Toggle switch popover
+				</button>
+				<div class="popover-popup" aria-hidden="false" tabindex="-1" aria-label="Use the ESC key to close" style="">
+					<p class="popover-popup-title">
+						Toggle switch popover
+					</p>
+					<p class="popover-popup-body" style="">
+						The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her
+						in a languid, sleepy voice.
+						<button ng-click="sayHello()">You can click me</button>
+					</p>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+</body>
+</html>

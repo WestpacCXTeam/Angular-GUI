@@ -1,0 +1,11 @@
+
+main {
+   width: 80%;
+   margin: auto;
+}
+
+/* display focused element */
+.btn:focus {
+    outline: 2px dotted #000;
+    outline-offset: .5rem;
+}
